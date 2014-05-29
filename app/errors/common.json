@@ -1,0 +1,87 @@
+{
+  "UNKNOWN_ERROR": {
+    "httpStatusCode": 500,
+    "message": "An unknown error has occurred.",
+    "code": 199999
+  },
+  "AUTH_MISSING": {
+    "httpStatusCode": 401,
+    "message": "Authentication information invalid or missing.",
+    "code": 100001
+  },
+  "STD_INPUT_NOT_SUPPORTED": {
+    "httpStatusCode": 400,
+    "message": "$where clause is not supported as a filter.",
+    "code": 100002
+  },
+  "STD_INPUT_INVALID_QUERY": {
+    "httpStatusCode": 400,
+    "message": "Could not parse query string.",
+    "code": 100003
+  },
+  "STD_QUERY_ERROR": {
+    "httpStatusCode": 500,
+    "message": "An error occurred while executing the query.",
+    "code": 100004
+  },
+  "LOGGER_NOT_INITALIZED": {
+    "httpStatusCode": 500,
+    "message": "Logger has not been initialized.",
+    "code": 100005
+  },
+  "VALIDATION_FAILED": {
+    "httpStatusCode": 400,
+    "message": "Some of the fields of the %s has missing or invalid values.",
+    "code": 100006
+  },
+  "TYPED_QUERY_ERROR": {
+    "httpStatusCode": 500,
+    "message": "An error occurred while trying to get %s.",
+    "code": 100007
+  },
+  "TYPED_SAVE_ERROR": {
+    "httpStatusCode": 500,
+    "message": "An error occurred while trying to save %s.",
+    "code": 100008
+  },
+  "TYPED_REMOVE_ERROR": {
+    "httpStatusCode": 500,
+    "message": "An error occurred while trying to remove %s.",
+    "code": 100009
+  },
+  "GOOGLE_GEO_ERROR": {
+    "httpStatusCode": 500,
+    "message": "An error occurred while trying to get the coordinates [%s] from google.",
+    "code": 100009
+  },
+  "REQUEST_FAILED": {
+    "httpStatusCode": 502,
+    "message": "The request to %s failed.",
+    "code": 100010
+  },
+  "OBJECT_NOT_FOUND": {
+    "httpStatusCode": 400,
+    "message": "Could not find any %s that matched the query.",
+    "code": 100011
+  },
+  "PROPERTY_READONLY": {
+    "httpStatusCode": 400,
+    "message": "The property %s is readonly.",
+    "code": 100012
+  },
+  "XML_PARSE_ERROR": {
+    "httpStatusCode": 400,
+    "message": "An error occurred during parsing XML data.",
+    "code": 100013
+  },
+  "UPDATE_FORBIDDEN": {
+    "httpStatusCode": 401,
+    "message": "The user does not have permissions to modify the %s data.",
+    "code": 100014
+  },
+  "MISSING_DATA": {
+    "httpStatusCode": 400,
+    "message": "The %s property is missing.",
+    "code": 100015
+  }
+}

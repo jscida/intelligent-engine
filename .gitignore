@@ -1,0 +1,9 @@
+node_modules/
+.project
+.settings/
+logs/
+external/*.*
+*.swp
+migrations/.migrate
+.idea
+.jshintrc

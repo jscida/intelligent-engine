@@ -1,0 +1,31 @@
+{
+  "db": {
+    "hosts": ["localhost:27017", "localhost:27018", "localhost:27019"],
+    "name": "viridislearning"
+  },
+  "elasticsearch": {
+    "hosts": ["localhost:9200"]
+  },
+  "app": {
+    "port": 8001
+  },
+  "logging": {
+    "appenders": [
+      {
+        "type": "console"
+      },
+      {
+        "type": "dateFile",
+        "filename": "logs/engine.log",
+        "pattern": "-yyyy-MM-dd",
+        "alwaysIncludePattern": false
+      }
+    ],
+    "level": "DEBUG"
+  },
+  "auth": {
+    "excludedPaths": [
+      
+    ]
+  }
+}

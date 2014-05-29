@@ -1,0 +1,28 @@
+{
+  "db": {
+    "hosts": ["10.182.11.225:27017", "10.182.11.225:27018", "10.182.11.225:27019"],
+    "name": "viridislearning-qa"
+  },
+  "elasticsearch": {
+    "hosts": ["10.182.11.225:9200"]
+  },
+  "app": {
+    "port": 8001
+  },
+  "logging": {
+    "appenders": [
+      {
+        "type": "dateFile",
+        "filename": "/var/log/engine/engine",
+        "pattern": "-yyyy-MM-dd",
+        "alwaysIncludePattern": false
+      }
+    ],
+    "level": "DEBUG"
+  },
+  "auth": {
+    "excludedPaths": [
+      
+    ]
+  }
+}
