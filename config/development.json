@@ -1,7 +1,7 @@
 {
   "db": {
     "hosts": ["localhost:27017", "localhost:27018", "localhost:27019"],
-    "name": "viridislearning"
+    "name": "intelligentmaster"
   },
   "elasticsearch": {
     "hosts": ["localhost:9200"]
@@ -25,7 +25,10 @@
   },
   "auth": {
     "excludedPaths": [
-      
+      {
+        "path": "^/test",
+        "method": "GET"
+      }
     ]
   }
 }

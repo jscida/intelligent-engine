@@ -1,7 +1,7 @@
 {
   "db": {
     "hosts": ["10.182.11.225:27017", "10.182.11.225:27018", "10.182.11.225:27019"],
-    "name": "viridislearning-qa"
+    "name": "intelligentmaster"
   },
   "elasticsearch": {
     "hosts": ["10.182.11.225:9200"]

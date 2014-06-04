@@ -13,8 +13,8 @@
     "log4js": "~0.6.9",
     "lodash": "~1.1.1",
 	"request": "~2.27.0",
-    "bluebird": "~1.2"
-    
+    "bluebird": "~1.2",
+    "mongoskin": "*"
   },
   "devDependencies": {
     "mocha": "~1.8.1",

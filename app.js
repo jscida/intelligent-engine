@@ -37,6 +37,7 @@ if (cluster.isMaster) {
   });
 
   var port = app.get('port');
+  
   http.createServer(app).listen(port, function() {
     logger.info('Express server running ' + config.getEnv() + ' environment and listening on port ' + app.get('port') + ' on worker: ' + workerId);
   });
