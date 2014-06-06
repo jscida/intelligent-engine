@@ -1,4 +1,5 @@
 var mongo = require('mongoskin');
+var Promise = require('bluebird');
 var config = require('../../config');
 
 var servers = config.getCurrent().db.hosts;
@@ -36,7 +37,7 @@ function getDataBase(instanceName) {
   }
   var replSet = createReplSet();
   var db = new Db(instanceName, replSet, {
-    w : 0
+    w : 1
   });
   dbCache[instanceName] = db;
   return db;
@@ -44,12 +45,63 @@ function getDataBase(instanceName) {
 
 initializeMasterCnn();
 
-var DbService = function(instanceName) {
+var DbService = function(instanceName, collectionName) {
   this.db = getDataBase(instanceName);
+  this.collectionName = collectionName;
 };
 
 DbService.prototype.collection = function(collectionName) {
   return this.db.collection(collectionName);
+};
+
+DbService.prototype.currentCollection = function() {
+  return this.db.collection(this.collectionName);
+};
+
+DbService.prototype.find = function(query, fields, options) {
+  var cursor = this.currentCollection().find(query, fields, options);
+  var toArray = Promise.promisify(cursor.toArray, cursor);
+  return toArray();
+};
+
+DbService.prototype.findOne = function(query, fields, options) {
+  var findOne = Promise.promisify(this.currentCollection().findOne, this.currentCollection());
+  return findOne(query, fields, options);
+};
+
+DbService.prototype.insert = function(doc, options) {
+  var insert = Promise.promisify(this.currentCollection().insert, this.currentCollection());
+  return insert(doc, options);
+};
+
+DbService.prototype.remove = function(query, options) {
+  var remove = Promise.promisify(this.currentCollection().remove, this.currentCollection());
+  return remove(query, options);
+};
+
+DbService.prototype.save = function(doc, options) {
+  var save = Promise.promisify(this.currentCollection().save, this.currentCollection());
+  return save(doc, options);
+};
+
+DbService.prototype.update = function(query, doc, options) {
+  var update = Promise.promisify(this.currentCollection().update, this.currentCollection());
+  return update(query, doc, options);
+};
+
+DbService.prototype.count = function(query, options) {
+  var count = Promise.promisify(this.currentCollection().count, this.currentCollection());
+  return count(query, options);
+};
+
+DbService.prototype.findAndModify = function(query, sort, doc, options) {
+  var findAndModify = Promise.promisify(this.currentCollection().findAndModify, this.currentCollection());
+  return findAndModify(query, sort, doc, options);
+};
+
+DbService.prototype.findAndRemove = function(query, sort, options) {
+  var findAndRemove = Promise.promisify(this.currentCollection().findAndRemove, this.currentCollection());
+  return findAndRemove(query, sort, options);
 };
 
 module.exports = DbService;
